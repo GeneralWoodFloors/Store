@@ -3,6 +3,8 @@ from .models import User
 from .serializers import UserSerializer
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from django.contrib.auth import get_user_model
 
 # Create your views here.
@@ -27,3 +29,9 @@ class ProfileUserView(generics.RetrieveAPIView):
     def get_object(self):
         # Return the authenticated user's profile
         return self.request.user
+    
+class LogoutView(APIView): #temporary -> for demo purposes -> future should be using generics.DestroyAPIView
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        return Response({"message": "You have been logged out."}, status=200)
