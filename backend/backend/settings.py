@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",  # For JWT authentication
     "corsheaders",
     "accounts",
+    "gallery",
 ]
 
 MIDDLEWARE = [
@@ -153,3 +154,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWS_CREDENTIALS = True
 
 AUTH_USER_MODEL = 'accounts.User' # For settings to use my custom user model
+
+# Media settings -> make Django look for uploaded media files in a directory
+MEDIA_URL = '/media/'  # URL for serving media files
+MEDIA_ROOT = BASE_DIR / 'media'  # Path where media files will be saved
