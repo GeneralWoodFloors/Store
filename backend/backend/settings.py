@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",  # For JWT authentication
     "corsheaders",
+    "accounts",
 ]
 
 MIDDLEWARE = [
@@ -150,3 +151,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWS_CREDENTIALS = True
+
+AUTH_USER_MODEL = 'accounts.User' # For settings to use my custom user model
