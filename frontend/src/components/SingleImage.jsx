@@ -1,43 +1,41 @@
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import api from "../api";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-
-
-function SingleImage () {
-  const [image, setImage] = useState([]);
+const SingleImage = () => {
+  const { id } = useParams(); // Get the image ID from the URL
+  const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
-  
-  useEffect (() => {
+
+  useEffect(() => {
     axios
-    .get('gallery/<int:pk>/') 
-    .then((res) => {
-      setImages(res.data)
-      setLoading(false)
-    })
-    .catch((error) => {
-      console.error(error);
-      setError("Failed to load images")
-      setLoading(false)
-    });
-  }, [])
+      .get(`http://127.0.0.1:8000/gallery/${id}/`) // Fetch single image data
+      .then((response) => {
+        setImage(response.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching image:", err);
+        setError("Failed to load image.");
+        setLoading(false);
+      });
+  }, [id]);
 
-  if (loading) return <p>Loading Gallery...</p>
-  if (error) return <p>{error}</p>
+  if (loading) return <p>Loading image...</p>;
+  if (error) return <p>{error}</p>;
 
-  return ( 
-    <div className="Gallery">
-      {images.map((image) => { // link wil link to a singleImage page; need to create
-        <Link> 
-          <img src={image.image} alt={image.title} className="image-gallery" />
-          <h3>{image.title}</h3>
-        </Link>
-      })}
+  return (
+    <div className="single-image">
+      <Link to="/gallery" className="button-link">
+        <button>Back to Gallery</button>
+      </Link>
+      <img src={image.image} alt={image.title} className="single-image-img" />
+      <h1>{image.title}</h1>
+      <p>{image.description}</p>
     </div>
-  )
-}
+  );
+};
 
-export default SingleImage
+export default SingleImage;
