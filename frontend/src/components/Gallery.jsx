@@ -1,42 +1,44 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import api from "../api";
 import axios from "axios";
 
-
-
-function Gallery () {
+function Gallery() {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
-  useEffect (() => {
+
+  useEffect(() => {
     axios
-    .get('gallery/') 
-    .then((res) => {
-      setImages(res.data)
-      setLoading(false)
-    })
-    .catch((error) => {
-      console.error(error);
-      setError("Failed to load images")
-      setLoading(false)
-    });
-  }, [])
+      .get("http://127.0.0.1:8000/gallery/") // Full API URL
+      .then((res) => {
+        console.log("API Response:", res.data); // Log response
+        setImages(res.data); // Assign the array of images
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching images:", error);
+        setError("Failed to load images");
+        setLoading(false);
+      });
+  }, []);
 
-  if (loading) return <p>Loading Gallery...</p>
-  if (error) return <p>{error}</p>
+  if (loading) return <p>Loading Gallery...</p>;
+  if (error) return <p>{error}</p>;
 
-  return ( 
-    <div className="Gallery">
-      {images.map((image) => { // link wil link to a singleImage page; need to create
-        <Link> 
-          <img src={image.image} alt={image.title} className="image-gallery" />
+  return (
+    <div className="gallery">
+      {images.map((image) => (
+        <div key={image.id} className="gallery-item">
+          <img
+            src={image.image} 
+            alt={image.title}
+            className="gallery-image"
+          />
           <h3>{image.title}</h3>
-        </Link>
-      })}
+          <p>{image.description}</p>
+        </div>
+      ))}
     </div>
-  )
+  );
 }
 
-export default Gallery
+export default Gallery;

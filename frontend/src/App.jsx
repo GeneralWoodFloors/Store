@@ -4,7 +4,7 @@ import Login from './pages/Login'
 import Home from './pages/Home'
 import Register from './pages/Register'
 import NotFound from './pages/NotFound'
-import Gallery from './pages/Gallery'
+import GalleryPage from './pages/Gallery'
 import ProtectedRoute from './components/ProtectedRoute'
 
 function Logout () {
@@ -31,7 +31,7 @@ function App() {
           <Route path='/login' element= {<Login/>}/>
           <Route path='/logout' element= {<Logout/>}/>
           <Route path='/register' element= {<RegisterAndLogout/>}/>
-          <Route path='/gallery' element= {<Gallery/>}/>
+          <Route path='/gallery' element= {<GalleryPage/>}/>
           <Route path='*' element= {<NotFound/>}/>
       </Routes>
     </BrowserRouter>

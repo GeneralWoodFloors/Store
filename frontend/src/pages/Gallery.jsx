@@ -1,5 +1,7 @@
-function Home () {
-  return <div>Gallery</div>
+import Gallery from '../components/Gallery'
+
+function GalleryPage () {
+  return <Gallery/>
 }
 
-export default Home
+export default GalleryPage
