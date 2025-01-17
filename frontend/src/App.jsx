@@ -23,12 +23,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element= { 
+        <Route path='/user' element= { 
           <ProtectedRoute> 
-            <Home/>
+            {/* Include routes that will only be available when a person is logged in; example: user profiles, admin create*/}
           </ProtectedRoute>
           }/>
-
+          <Route path='/' element={<Home/>}/>
           <Route path='/login' element= {<Login/>}/>
           <Route path='/logout' element= {<Logout/>}/>
           <Route path='/register' element= {<RegisterAndLogout/>}/>
