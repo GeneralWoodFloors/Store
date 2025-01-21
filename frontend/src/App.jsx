@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound'
 import GalleryPage from './pages/Gallery'
 import SingleImagePage from './pages/SingleImage'
 import ProtectedRoute from './components/ProtectedRoute'
+import Admin from './pages/Admin'
 
 function Logout () {
    localStorage.clear()
@@ -34,6 +35,7 @@ function App() {
           <Route path='/register' element= {<RegisterAndLogout/>}/>
           <Route path='/gallery' element= {<GalleryPage/>}/>
           <Route path='/gallery/:id' element= {<SingleImagePage/>}/>
+          <Route path='/admin' element={<Admin/>}/>
           <Route path='*' element= {<NotFound/>}/>
       </Routes>
     </BrowserRouter>

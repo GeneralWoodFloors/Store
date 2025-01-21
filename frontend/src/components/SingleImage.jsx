@@ -28,12 +28,13 @@ const SingleImage = () => {
 
   return (
     <div className="single-image">
-      <Link to="/gallery" className="button-link">
-        <button>Back to Gallery</button>
-      </Link>
       <img src={image.image} alt={image.title} className="single-image-img" />
       <h1>{image.title}</h1>
       <p>{image.description}</p>
+
+      <Link to="/gallery" className="button-link">
+        <button>Back to Gallery</button>
+      </Link>
     </div>
   );
 };
