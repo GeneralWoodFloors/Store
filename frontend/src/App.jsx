@@ -9,6 +9,7 @@ import SingleImagePage from './pages/SingleImage'
 import ProtectedRoute from './components/ProtectedRoute'
 import Admin from './pages/Admin'
 import Navbar from './components/NavBar'
+import About from './pages/About'
 
 function Logout () {
    localStorage.clear()
@@ -38,6 +39,7 @@ function App() {
           <Route path='/gallery' element= {<GalleryPage/>}/>
           <Route path='/gallery/:id' element= {<SingleImagePage/>}/>
           <Route path='/admin' element={<Admin/>}/>
+          <Route path='/about' element={<About/>}/>
           <Route path='*' element= {<NotFound/>}/>
       </Routes>
     </BrowserRouter>
