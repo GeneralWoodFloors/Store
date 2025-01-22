@@ -8,6 +8,7 @@ import GalleryPage from './pages/Gallery'
 import SingleImagePage from './pages/SingleImage'
 import ProtectedRoute from './components/ProtectedRoute'
 import Admin from './pages/Admin'
+import Navbar from './components/NavBar'
 
 function Logout () {
    localStorage.clear()
@@ -23,6 +24,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Navbar element={<Navbar/>}/>
       <Routes>
         <Route path='/user' element= { 
           <ProtectedRoute> 
