@@ -15,7 +15,7 @@ const Navbar = () => {
         <Link to="/about" className="link">About Us</Link>
         <Link to="/gallery" className="link">Gallery</Link>
         {/* <Link to="/booking" className="link">Booking</Link> */}
-        {/* <Link to="/payment" className="link">Payment</Link> */} 
+        <Link to="/payment" className="link">Payment</Link> 
       </div>
     </nav>
   );
