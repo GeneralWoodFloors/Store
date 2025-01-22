@@ -11,6 +11,7 @@ import Admin from './pages/Admin'
 import Navbar from './components/NavBar'
 import About from './pages/About'
 import Payment from './pages/Payment'
+import UserProfile from './pages/UserProfile'
 
 function Logout () {
    localStorage.clear()
@@ -30,6 +31,7 @@ function App() {
       <Routes>
         <Route path='/user' element= { 
           <ProtectedRoute> 
+            <UserProfile/>
             {/* Include routes that will only be available when a person is logged in; example: user profiles, admin create*/}
           </ProtectedRoute>
           }/>
