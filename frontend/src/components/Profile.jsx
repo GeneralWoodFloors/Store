@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../api";
 import { ACCESS_TOKEN } from "../constants";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -39,6 +40,11 @@ const Profile = () => {
       <p><strong>Email:</strong> {user.email || "N/A"}</p>
       <p><strong>Borough:</strong> {user.borough || "N/A"}</p>
       <p><strong>Phone Number:</strong> {user.phone_number || "N/A"}</p>
+
+      <Link to={'/logout'}>
+        <button className="Logout-button">Logout</button>
+      
+      </Link>
     </div>
   );
 };

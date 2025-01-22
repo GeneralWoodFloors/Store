@@ -28,7 +28,7 @@ function Form ({route, method}) {
           if (method === "login") {
               localStorage.setItem(ACCESS_TOKEN, res.data.access);
               localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-              navigate("/") // navigates to home page once logged in ** can be changed in future to something else : user profile
+              navigate("/user") // navigates to home page once logged in ** can be changed in future to something else : user profile
           } else {
               navigate("/login") 
           }
