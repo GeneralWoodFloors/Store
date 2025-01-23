@@ -1,0 +1,30 @@
+
+.container {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+
+.hero {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 50px 20px;
+}
+
+.hero .hero-heading {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero .hero-text {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.hero .hero-button {
+  padding: 15px 30px;
+  background-color: #fff;
+  color: #007BFF;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}

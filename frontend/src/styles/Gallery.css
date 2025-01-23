@@ -1,0 +1,51 @@
+/* Gallery Container */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+  gap: 16px; /* Space between items */
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for better contrast */
+}
+
+/* Individual Gallery Item */
+.gallery-item {
+  background-color: #fff; /* White background for items */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Gallery Image */
+.gallery-image {
+  width: 100%; /* Full width of container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Cover image within bounds */
+  border-bottom: 2px solid #ddd; /* Separator line */
+}
+
+/* Gallery Button */
+.gallery-button {
+  all: unset; /* Remove default button styles */
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+/* Title and Description */
+.gallery-item h3 {
+  margin: 10px 0 5px; /* Space around the title */
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.gallery-item p {
+  font-size: 0.9rem;
+  color: #666;
+}

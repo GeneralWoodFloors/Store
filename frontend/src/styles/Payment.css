@@ -1,0 +1,37 @@
+
+.payment-section {
+  padding: 50px 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.payment-section .heading {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #007BFF; /* Primary color for the heading */
+}
+
+.payment-section .text {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #333; /* Neutral text color */
+}
+
+.payment-section .payment-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 20px auto;
+  max-width: 400px;
+}
+
+.payment-section .payment-list li {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #444; /* Slightly darker for contrast */
+}
+
+.payment-section .note {
+  font-size: 1rem;
+  color: #666; /* Lighter gray for emphasis */
+  margin-top: 20px;
+}
