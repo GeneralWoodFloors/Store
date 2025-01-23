@@ -7,11 +7,12 @@ import NotFound from './pages/NotFound'
 import GalleryPage from './pages/Gallery'
 import SingleImagePage from './pages/SingleImage'
 import ProtectedRoute from './components/ProtectedRoute'
-import Admin from './pages/Admin'
+// import Admin from './pages/Admin'
 import Navbar from './components/NavBar'
 import About from './pages/About'
 import Payment from './pages/Payment'
 import UserProfile from './pages/UserProfile'
+import Bookings from './pages/Booking'
 
 function Logout () {
    localStorage.clear()
@@ -41,9 +42,10 @@ function App() {
           <Route path='/register' element= {<RegisterAndLogout/>}/>
           <Route path='/gallery' element= {<GalleryPage/>}/>
           <Route path='/gallery/:id' element= {<SingleImagePage/>}/>
-          <Route path='/admin' element={<Admin/>}/>
+          {/* <Route path='/admin' element={<Admin/>}/> */}
           <Route path='/about' element={<About/>}/>
           <Route path='/payment' element={<Payment/>}/>
+          <Route path='/booking' element={<Bookings/>}/>
           <Route path='*' element= {<NotFound/>}/>
       </Routes>
     </BrowserRouter>
