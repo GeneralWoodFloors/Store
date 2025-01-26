@@ -29,9 +29,9 @@ function Gallery() {
   return (
     <div className="gallery">
       {images.map((image) => (
-        <Link to={`/gallery/${image.id}`}>
+        <Link key={image.id} to={`${image.id}`}>
           <button className="gallery-button">
-            <div key={image.id} className="gallery-item">
+            <div className="gallery-item">
               <img
                 src={image.image} 
                 alt={image.title}
@@ -44,7 +44,7 @@ function Gallery() {
         </Link>
       ))}
     </div>
-  );
+  );  
 }
 
 export default Gallery;

@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-nma=xi6x2p-crjg^ifqqkapyu1qjd0l=+wn)-rijk_o%$!k3w_"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"] # allow any host to host our app; meant for deployment
 
@@ -156,5 +156,8 @@ CORS_ALLOWS_CREDENTIALS = True
 AUTH_USER_MODEL = 'accounts.User' # For settings to use my custom user model
 
 # Media settings -> make Django look for uploaded media files in a directory
-MEDIA_URL = '/media/'  # URL for serving media files
-MEDIA_ROOT = BASE_DIR / 'media'  # Path where media files will be saved
+# MEDIA_URL = '/media/'  # URL for serving media files
+# MEDIA_ROOT = BASE_DIR / 'media'  # Path where media files will be saved
+
+MEDIA_URL = '/media/' # URL path used to access media files in the browser
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directory where media files will be stored on the server
