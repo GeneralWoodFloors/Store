@@ -29,22 +29,22 @@ function Gallery() {
   return (
     <div className="gallery">
       {images.map((image) => (
-        <Link to={`/gallery/${image.id}`}>
+        <Link key={image.id} to={`${image.id}`}>
           <button className="gallery-button">
-            <div key={image.id} className="gallery-item">
+            <div className="gallery-item">
               <img
                 src={image.image} 
                 alt={image.title}
                 className="gallery-image"
               />
-              <h3>{image.title}</h3>
-              <p>{image.description}</p>
+              {/* <h3>{image.title}</h3>
+              <p>{image.description}</p> */}
             </div>
           </button>
         </Link>
       ))}
     </div>
-  );
+  );  
 }
 
 export default Gallery;

@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -24,3 +26,13 @@ urlpatterns = [
     path('gallery/', include('gallery.urls')),
     path('api-auth/', include("rest_framework.urls")) 
 ]
+
+ # Only execute this block in development (when DEBUG is True)
+if settings.DEBUG:
+    # Serve media files during development using the MEDIA_URL and MEDIA_ROOT
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# When in production mode, this will change: 
+# Would have to use Nginx or Apache to serve both static and media files.
+# For future reference, this is the url to get the images
+# http://127.0.0.1:8000/gallery/media/gallery/Carpenter-photo-test.jpg
