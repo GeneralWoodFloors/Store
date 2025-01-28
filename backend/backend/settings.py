@@ -25,12 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-nma=xi6x2p-crjg^ifqqkapyu1qjd0l=+wn)-rijk_o%$!k3w_"
+SECRET_KEY = os.getenv("SECRET_KEY")  # Get SECRET_KEY from environment variable
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ["*"] # allow any host to host our app; meant for deployment
+DEBUG = os.getenv('DEBUG', 'True') == 'True'  # Will use value from .env or default to True if not set
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')  # Will use value from .env or default to localhost
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -150,8 +149,14 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOWS_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    # actual frontend domain for production
+    "http://localhost:5173",   
+]
+
+CORS_ALLOW_ALL_ORIGINS = False  # Make sure this is set to False to avoid all-origin access
+CORS_ALLOW_CREDENTIALS = True   # Allows sending cookies with requests, set to True if needed
+
 
 AUTH_USER_MODEL = 'accounts.User' # For settings to use my custom user model
 
