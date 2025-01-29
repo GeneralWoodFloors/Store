@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 from dotenv import load_dotenv
+from decouple import config
 import os
 
 load_dotenv()
@@ -59,6 +60,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "accounts",
     "gallery",
+    "booking"
 ]
 
 MIDDLEWARE = [
@@ -166,3 +168,4 @@ AUTH_USER_MODEL = 'accounts.User' # For settings to use my custom user model
 
 MEDIA_URL = '/media/' # URL path used to access media files in the browser
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directory where media files will be stored on the server
+CALENDLY_API_TOKEN = config("CALENDLY_API_TOKEN", default="")
