@@ -170,3 +170,12 @@ AUTH_USER_MODEL = 'accounts.User' # For settings to use my custom user model
 MEDIA_URL = '/media/' # URL path used to access media files in the browser
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directory where media files will be stored on the server
 CALENDLY_API_TOKEN = config("CALENDLY_API_TOKEN", default="")
+
+# Email Configuration
+EMAIL_BACKEND = os.getenv("EMAIL_BACKEND", "django.core.mail.backends.smtp.EmailBackend") #means you're using SMTP (Simple Mail Transfer Protocol) to send emails.
+EMAIL_HOST = os.getenv("EMAIL_HOST", "smtp.gmail.com") #specifies the mail server to connect to for sending emails
+EMAIL_PORT = int(os.getenv("EMAIL_PORT", 587))  # Port 587 is the default for sending email over TLS (a secure connection) with SMTP
+EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS", "True") == "True"  # enables TLS (Transport Layer Security) encryption for your email communication. Setting it to True ensures that your email data is securely transmitted
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER") #the email address you want to send emails from
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", EMAIL_HOST_USER) #This is the "from" address for all emails sent by your Django application

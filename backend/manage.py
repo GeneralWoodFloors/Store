@@ -2,6 +2,13 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+from dotenv import load_dotenv
+
+# Load environment variables from .env file before running any commands
+load_dotenv()
+
+# Import and execute Django's command-line utility
+from django.core.management import execute_from_command_line
 
 
 def main():
