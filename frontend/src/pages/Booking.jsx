@@ -1,14 +1,27 @@
-import React from 'react';
+import { useEffect } from 'react';
 
 const Bookings = () => {
+  useEffect(() => {
+    // Dynamically load the Calendly widget script
+    const script = document.createElement('script');
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Clean up by removing the script when the component unmounts
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
-    <section className="booking-section">
-      <h1 className="heading">Booking Consultation</h1>
-      <p className="text">
-        Book a consultation to discuss your project and services.
-      </p>
-      <p className="note">For now, please contact us directly to book a consultation.</p>
-    </section>
+    <div className="widget">
+      <div
+        className="calendly-inline-widget"
+        data-url="https://calendly.com/americaxalvarez/60min"
+        style={{ minWidth: "320px", height: "700px" }}
+      ></div>
+    </div>
   );
 };
 
