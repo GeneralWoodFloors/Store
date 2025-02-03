@@ -35,3 +35,11 @@ class ContactMessageCreateView(generics.CreateAPIView):
             recipient_list=[contact_message.email], # Send to the email provided in the form
             fail_silently=True,  # Prevents errors from stopping execution
         )
+
+class ContactMessageListView(generics.ListAPIView):
+    """
+    API endpoint to list all contact messages (Admin use).
+    """
+    queryset = ContactMessage.objects.all().order_by('-created_at')  # Orders messages from newest to oldest
+    serializer_class = ContactMessageSerializer
+    permission_classes = [IsAdminUser]  # Restricts access to admin users
