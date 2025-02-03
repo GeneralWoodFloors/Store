@@ -25,7 +25,8 @@ urlpatterns = [
     path('account/', include('accounts.urls')),
     path('gallery/', include('gallery.urls')),
     path('api-auth/', include("rest_framework.urls")), 
-    path('appointments/', include('booking.urls'))
+    path('appointments/', include('booking.urls')),
+    path('contact/', include("contact.urls"))
 ]
 
  # Only execute this block in development (when DEBUG is True)
