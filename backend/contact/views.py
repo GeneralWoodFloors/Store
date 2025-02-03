@@ -43,3 +43,52 @@ class ContactMessageListView(generics.ListAPIView):
     queryset = ContactMessage.objects.all().order_by('-created_at')  # Orders messages from newest to oldest
     serializer_class = ContactMessageSerializer
     permission_classes = [IsAdminUser]  # Restricts access to admin users
+
+class ContactMessageResponseView(generics.UpdateAPIView):
+    """
+    API endpoint for an admin to respond to a contact message.
+    - Updates the response field
+    - Marks the message as responded
+    - Notifies the sender via email if they are a guest
+    - Notifies registered users through their profile
+    """
+    queryset = ContactMessage.objects.all()
+    serializer_class = ContactMessageSerializer
+    permission_classes = [IsAdminUser]  # Restricts response updates to admin users
+
+    def update(self, request, *args, **kwargs):
+        """
+        Handles response updates and notifies the sender.
+        """
+        instance = self.get_object() # Gets the specific contact message being updated
+        response_text = request.data.get("response", "").strip()  # Extract response text
+
+        if not response_text:
+            return Response({"error": "Response text cannot be empty."}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Update and save the response
+        instance.response = response_text # Saves the admin's response in the database
+        instance.responded = True # Marks the message as responded
+        instance.save() # Updates the database record
+
+        # Notify the sender
+        if instance.user:  # If the sender is a registered user
+            return Response(
+                {"message": "Response saved. User can view it in their profile."},
+                status=status.HTTP_200_OK
+            )
+        else:  # If the sender is a guest, send an email
+            send_mail(
+                subject="Response to Your Contact Request",
+                message=(
+                    f"Hello {instance.name},\n\n"
+                    f"Here is our response to your message:\n\n{response_text}"
+                ),
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[instance.email],
+                fail_silently=True,
+            )
+            return Response(
+                {"message": "Response emailed to the sender."},
+                status=status.HTTP_200_OK
+            )
