@@ -71,24 +71,7 @@ class ContactMessageResponseView(generics.UpdateAPIView):
         instance.responded = True # Marks the message as responded
         instance.save() # Updates the database record
 
-        # Notify the sender
-        if instance.user:  # If the sender is a registered user
-            return Response(
-                {"message": "Response saved. User can view it in their profile."},
-                status=status.HTTP_200_OK
-            )
-        else:  # If the sender is a guest, send an email
-            send_mail(
-                subject="Response to Your Contact Request",
-                message=(
-                    f"Hello {instance.name},\n\n"
-                    f"Here is our response to your message:\n\n{response_text}"
-                ),
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[instance.email],
-                fail_silently=True,
-            )
-            return Response(
-                {"message": "Response emailed to the sender."},
-                status=status.HTTP_200_OK
-            )
+        return Response(
+            {"message": "Response saved. User will be notified."},
+            status=status.HTTP_200_OK
+        )
