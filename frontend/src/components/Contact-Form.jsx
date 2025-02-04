@@ -38,6 +38,20 @@ const ContactForm = () => {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert("Message sent successfully!");
+
+      // Reset the form after successful submission
+      setFormData({
+        name: "",
+        email: "",
+        address: "",
+        phone: "",
+        message: "",
+        image: null, 
+      });
+
+      // Clear file input manually (React doesn’t reset file inputs)
+      document.getElementById("imageUpload").value = "";
+
     } catch (error) {
       console.error("Error submitting contact form", error);
     }
