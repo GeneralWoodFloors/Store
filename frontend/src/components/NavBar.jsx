@@ -17,6 +17,7 @@ const Navbar = () => {
         <Link to="/booking" className="link">Booking</Link>
         <Link to="/payment" className="link">Payment</Link> 
         <Link to="/user" className="link">Profile</Link>
+        <Link to="/contact" className="link">Contact Us</Link>
         <li><a href="http://127.0.0.1:8000/admin" target="_blank" rel="noopener noreferrer">Admin</a></li>
       </div>
     </nav>
