@@ -13,6 +13,7 @@ import About from './pages/About'
 import Payment from './pages/Payment'
 import UserProfile from './pages/UserProfile'
 import Bookings from './pages/Booking'
+import ContactUs from './pages/Contact'
 
 function Logout () {
    localStorage.clear()
@@ -43,6 +44,7 @@ function App() {
           <Route path='/gallery' element= {<GalleryPage/>}/>
           <Route path='/gallery/:id' element= {<SingleImagePage/>}/>
           {/* <Route path='/admin' element={<Admin/>}/> */}
+          <Route path='/contact' element={<ContactUs/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/payment' element={<Payment/>}/>
           <Route path='/booking' element={<Bookings/>}/>
