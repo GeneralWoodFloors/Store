@@ -13,11 +13,11 @@ const ContactForm = () => {
   });
 
   const handleChange = (e) => {
-    if (e.target.name === "image") {
-      setFormData({ ...formData, image: e.target.files[0] });
-    } else {
-      setFormData({ ...formData, [e.target.name]: e.target.value });
-    }
+    const { name, value, files } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: files ? files[0] : value,
+    }));
   };
 
   const API_BASE_URL = import.meta.env.VITE_API_URL; // Get URL from env file
@@ -59,12 +59,49 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={submitContactForm}>
-      <input type="text" name="name" placeholder="Name" onChange={handleChange} required />
-      <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-      <input type="text" name="address" placeholder="Address (Optional)" onChange={handleChange} />
-      <input type="text" name="phone" placeholder="Phone (Optional)" onChange={handleChange} />
-      <textarea name="message" placeholder="Your Message" onChange={handleChange} required />
-      <input type="file" name="image" onChange={handleChange} />
+      <input
+        type="text"
+        name="name"
+        placeholder="Name"
+        onChange={handleChange}
+        value={formData.name}
+        required
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        onChange={handleChange}
+        value={formData.email}
+        required
+      />
+      <input
+        type="text"
+        name="address"
+        placeholder="Address (Optional)"
+        onChange={handleChange}
+        value={formData.address}
+      />
+      <input
+        type="text"
+        name="phone"
+        placeholder="Phone (Optional)"
+        onChange={handleChange}
+        value={formData.phone}
+      />
+      <textarea
+        name="message"
+        placeholder="Your Message"
+        onChange={handleChange}
+        value={formData.message}
+        required
+      />
+      <input
+        type="file"
+        id="imageUpload"
+        name="image"
+        onChange={handleChange}
+      />
       <button type="submit">Send Message</button>
     </form>
   );
