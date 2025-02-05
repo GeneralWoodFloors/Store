@@ -20,7 +20,7 @@ const ContactForm = () => {
     }
   };
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL; // Get URL from env file
+  const API_BASE_URL = import.meta.env.VITE_API_URL; // Get URL from env file
 
   const submitContactForm = async (e) => {
     e.preventDefault(); // Prevent default form submission

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL; // Get URL from env file
 
 const Bookings = () => {
   useEffect(() => {
@@ -18,7 +19,7 @@ const Bookings = () => {
     <div className="widget">
       <div
         className="calendly-inline-widget"
-        data-url="https://calendly.com/americaxalvarez/60min"
+        data-url={`${CALENDLY_URL}`}
         style={{ minWidth: "320px", height: "700px" }}
       ></div>
     </div>
