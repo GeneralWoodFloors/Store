@@ -8,9 +8,11 @@ function Gallery() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const API_BASE_URL = import.meta.env.VITE_API_URL; // Get URL from env file
+
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/gallery/") // Full API URL
+      .get(`${API_BASE_URL}gallery/`) // Full API URL
       .then((res) => {
         console.log("API Response:", res.data); // Log response
         setImages(res.data); // Assign the array of images

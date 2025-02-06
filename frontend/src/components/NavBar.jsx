@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/NavBar.css"; 
+const API_BASE_URL = import.meta.env.VITE_API_URL; // Get URL from env file
 
 const Navbar = () => {
   return (
@@ -17,7 +18,8 @@ const Navbar = () => {
         <Link to="/booking" className="link">Booking</Link>
         <Link to="/payment" className="link">Payment</Link> 
         <Link to="/user" className="link">Profile</Link>
-        <li><a href="http://127.0.0.1:8000/admin" target="_blank" rel="noopener noreferrer">Admin</a></li>
+        <Link to="/contact" className="link">Contact Us</Link>
+        <li><a href={`${API_BASE_URL}admin`} target="_blank" rel="noopener noreferrer">Admin Panel</a></li>
       </div>
     </nav>
   );
