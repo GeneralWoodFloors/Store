@@ -1,29 +1,39 @@
 from rest_framework import status, generics
 from rest_framework.response import Response
-from rest_framework.permissions import AllowAny, IsAdminUser
+from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import ContactMessage
 from .serializers import ContactMessageSerializer
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 class ContactMessageCreateView(generics.CreateAPIView):
     """
     API endpoint to allow users and guests to submit a contact message.
     Sends an email confirmation after submission.
     """
-    queryset = ContactMessage.objects.all()  # Defines the queryset to fetch all contact messages
-    serializer_class = ContactMessageSerializer  # Specifies the serializer for handling request/response data
-    permission_classes = [AllowAny]  # Allows both authenticated and unauthenticated users to submit messages
+    queryset = ContactMessage.objects.all()
+    serializer_class = ContactMessageSerializer
+    permission_classes = [AllowAny]
 
     def perform_create(self, serializer):
         """
-        Saves the contact message and sends a confirmation email.
-        If the sender is authenticated, links the user to the message.
+        Saves the contact message and links it to a user if the email matches an existing user.
+        Sends a confirmation email after submission.
         """
-        user = self.request.user if self.request.user.is_authenticated else None # Gets the user if authenticated, otherwise None
-        contact_message = serializer.save(user=user)  # Saves the message with an optional user reference
+        email = serializer.validated_data.get("email")  # Get the email from the request
+        user = None
 
-        # Send a confirmation email to the sender
+        if self.request.user.is_authenticated:
+            user = self.request.user  # Assign the logged-in user
+        else:
+            user = User.objects.filter(email=email).first()  # Find user by email if exists
+
+        # Save the contact message with the associated user
+        contact_message = serializer.save(user=user)
+
+        # Send confirmation email
         send_mail(
             subject="Your Contact Request Has Been Received",
             message=(
@@ -31,9 +41,9 @@ class ContactMessageCreateView(generics.CreateAPIView):
                 "Your message has been received. We will respond soon.\n\n"
                 f"Message:\n{contact_message.message}"
             ),
-            from_email=settings.DEFAULT_FROM_EMAIL, # Sender email 
-            recipient_list=[contact_message.email], # Send to the email provided in the form
-            fail_silently=True,  # Prevents errors from stopping execution
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[contact_message.email],
+            fail_silently=True,
         )
 
 class ContactMessageListView(generics.ListAPIView):
@@ -43,6 +53,19 @@ class ContactMessageListView(generics.ListAPIView):
     queryset = ContactMessage.objects.all().order_by('-created_at')  # Orders messages from newest to oldest
     serializer_class = ContactMessageSerializer
     permission_classes = [IsAdminUser]  # Restricts access to admin users
+
+class ContactMessageUserListView(generics.ListAPIView):
+    """
+    API endpoint to list messages submitted by the authenticated user.
+    """
+    serializer_class = ContactMessageSerializer
+    permission_classes = [IsAuthenticated]  # Only logged-in users can view their messages
+
+    def get_queryset(self):
+        """
+        Returns only messages belonging to the logged-in user.
+        """
+        return ContactMessage.objects.filter(user=self.request.user).order_by('-created_at')
 
 class ContactMessageResponseView(generics.UpdateAPIView):
     """

@@ -35,3 +35,14 @@ def send_response_email(sender, instance, created, **kwargs):
                 recipient_list=[instance.email],
                 fail_silently=False,
             )
+        else : 
+            send_mail(
+            subject="Response to Your Contact Request",
+            message=(
+                f"Hello {instance.name},\n\n"
+                f"Admin has responded to your message! Please check their response in your profile! Thank you"
+            ),
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[instance.email],
+            fail_silently=False,
+            )
