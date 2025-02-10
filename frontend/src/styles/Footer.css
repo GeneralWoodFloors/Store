@@ -1,6 +1,6 @@
 
 .footer {
-  background-color: #cda261;
+  background-color: #8B4513;
   color: white;
   text-align: center;
   padding: 15px 0;
@@ -26,5 +26,5 @@
 }
 
 .footer-links a:hover {
-  color: #007bff;
+  color: #CDA261;
 }
