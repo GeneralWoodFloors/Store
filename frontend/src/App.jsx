@@ -14,6 +14,7 @@ import Payment from './pages/Payment'
 import UserProfile from './pages/UserProfile'
 import Bookings from './pages/Booking'
 import ContactUs from './pages/Contact'
+import Footer from './components/Footer'
 
 function Logout () {
    localStorage.clear()
@@ -50,6 +51,7 @@ function App() {
           <Route path='/booking' element={<Bookings/>}/>
           <Route path='*' element= {<NotFound/>}/>
       </Routes>
+      <Footer/>
     </BrowserRouter>
   )
 }
