@@ -3,12 +3,13 @@
   padding: 50px 20px;
   text-align: center;
   font-family: 'Arial', sans-serif;
+  background-color: #F5F5F5;
 }
 
 .about-section .heading {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #007BFF; /* Primary color for the heading */
+  color: #8B4513; /* Primary wood-tone color */
 }
 
 .about-section .text {
