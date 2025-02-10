@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import "../styles/Contact-Form.css"
 
 
 const ContactForm = () => {
@@ -58,11 +59,12 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={submitContactForm}>
+    <form className="contact-form" onSubmit={submitContactForm}>
+      <h2>Contact Us</h2>
       <input
         type="text"
         name="name"
-        placeholder="Name"
+        placeholder="Full Name"
         onChange={handleChange}
         value={formData.name}
         required
@@ -70,7 +72,7 @@ const ContactForm = () => {
       <input
         type="email"
         name="email"
-        placeholder="Email"
+        placeholder="Email Address"
         onChange={handleChange}
         value={formData.email}
         required
@@ -85,7 +87,7 @@ const ContactForm = () => {
       <input
         type="text"
         name="phone"
-        placeholder="Phone (Optional)"
+        placeholder="Phone Number (Optional)"
         onChange={handleChange}
         value={formData.phone}
       />
@@ -96,12 +98,7 @@ const ContactForm = () => {
         value={formData.message}
         required
       />
-      <input
-        type="file"
-        id="imageUpload"
-        name="image"
-        onChange={handleChange}
-      />
+      <input type="file" id="imageUpload" name="image" onChange={handleChange} />
       <button type="submit">Send Message</button>
     </form>
   );
