@@ -1,13 +1,20 @@
-
 .container {
   font-family: 'Arial', sans-serif;
   text-align: center;
+  background-color: #faf3e0; /* Warm medium brown for a strong, earthy feel */
+  padding: 10px 10px;
 }
 
 .hero {
-  background-color: #007BFF;
-  color: #fff;
-  padding: 50px 20px;
+  background-image: url('../assets/Background.jpg');
+  background-size: cover;      /* Ensure the image covers the entire hero section */
+  background-repeat: no-repeat; /* Prevent repeating of the image */
+  background-position: center;  /* Center the image */
+  display: grid;          /* Enable grid */
+  place-items: center;    /* Center items both horizontally and vertically */
+  /* Other styles */
+  color: #070706c5; /* Light beige for text */
+  
 }
 
 .hero .hero-heading {
@@ -22,9 +29,14 @@
 
 .hero .hero-button {
   padding: 15px 30px;
-  background-color: #fff;
-  color: #007BFF;
+  background-color: #eac8ab; /* Light sand color for the button */
+  color: #532617; /* Dark brown text for contrast */
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.hero .hero-button:hover {
+  background-color: #bf926b; /* Darker tan when hovered */
 }

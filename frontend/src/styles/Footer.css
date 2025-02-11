@@ -1,6 +1,5 @@
-
 .footer {
-  background-color: #8B4513;
+  background-color: #532617; /* Dark brown for footer */
   color: white;
   text-align: center;
   padding: 15px 0;
@@ -26,5 +25,5 @@
 }
 
 .footer-links a:hover {
-  color: #CDA261;
+  color: #bf926b; /* Light brown color on hover */
 }
