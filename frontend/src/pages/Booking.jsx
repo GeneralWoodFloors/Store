@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import "../styles/Booking.css"
 const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL; // Get URL from env file
 
 const Bookings = () => {

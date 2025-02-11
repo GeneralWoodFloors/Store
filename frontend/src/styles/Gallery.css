@@ -4,7 +4,7 @@
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Smaller images */
   gap: 10px; /* Reduced gap between items */
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #faf3e0;
 }
 
 .gallery-item {
