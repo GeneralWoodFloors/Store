@@ -15,6 +15,7 @@ import UserProfile from './pages/UserProfile'
 import Bookings from './pages/Booking'
 import ContactUs from './pages/Contact'
 import Footer from './components/Footer'
+import "./styles/App.css"
 
 function Logout () {
    localStorage.clear()
