@@ -1,12 +1,12 @@
 .container {
-  font-family: 'Arial', sans-serif;
   text-align: center;
   background-color: #faf3e0; /* Warm medium brown for a strong, earthy feel */
   /* padding: 10px 10px; */
+  padding-bottom: 30px;
 }
 
 .hero {
-  background-image: url('../assets/Background.jpg');
+  background-image: url('../assets/background2.jpg');
   background-size: cover;      /* Ensure the image covers the entire hero section */
   background-repeat: no-repeat; /* Prevent repeating of the image */
   background-position: center;  /* Center the image */
@@ -15,7 +15,8 @@
   padding-bottom: 3%;
   padding-top: 3%;
   /* Other styles */
-  color: #070706c5; /* Light beige for text */
+  color: white; /* Light beige for text */
+  /* border-bottom: 2px solid black; */
   
 }
 
@@ -37,8 +38,46 @@
   border-radius: 5px;
   font-weight: bold;
   transition: background-color 0.3s ease; /* Smooth hover effect */
+  font-family: 'Georgia', Serif !important; /* Change to your desired font */
+  border: none !important; /* Remove any unwanted border */
 }
+
 
 .hero .hero-button:hover {
   background-color: #bf926b; /* Darker tan when hovered */
+}
+
+.home-container{
+  display: flex;
+  justify-content: center;
+}
+
+.home-gallery {
+  display: flex; /* Arrange images in a row */
+  justify-content:center; /* Center images horizontally */
+  gap: 15px; /* Add spacing between images */
+  margin-top: 40px; /* Space between hero and gallery */
+  flex-wrap: wrap; /* Ensure images wrap on smaller screens */
+  background-color: #532617;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width:fit-content;
+  border: 3px solid black;
+  border-radius: 10px;
+
+}
+
+.home-gallery-image {
+  width: 350px; /* Set a fixed width */
+  height: 300px; /* Set a fixed height */
+  object-fit: cover; /* Crop images to fit nicely */
+  border-radius: 8px; /* Smooth rounded corners */
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+  transition: transform 0.3s ease-in-out;
+}
+
+.home-gallery-image:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
 }
