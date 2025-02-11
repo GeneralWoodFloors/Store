@@ -3,9 +3,18 @@
   color: white;
   text-align: center;
   padding: 15px 0;
-  position: relative;
   bottom: 0;
   width: 100%;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the container takes the full viewport height */
+}
+
+.content {
+  flex: 1; /* Pushes the footer down */
 }
 
 .footer-content {
