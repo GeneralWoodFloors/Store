@@ -12,14 +12,14 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="links">
-        <Link to="/" className="link">Home</Link>
-        <Link to="/about" className="link">About</Link>
+        {/* <Link to="/" className="link">Home</Link> */}
+        {/* <Link to="/about" className="link">About</Link> */}
         <Link to="/gallery" className="link">Gallery</Link>
         <Link to="/booking" className="link">Booking</Link>
-        <Link to="/payment" className="link">Payment</Link> 
-        <Link to="/user" className="link">Profile</Link>
+        {/* <Link to="/payment" className="link">Payment</Link>  */}
         <Link to="/contact" className="link">Contact</Link>
-        <a href={`${API_BASE_URL}admin`} className="link" target="_blank" rel="noopener noreferrer">Admin</a>
+        <Link to="/user" className="link">Profile</Link>
+        {/* <a href={`${API_BASE_URL}admin`} className="link" target="_blank" rel="noopener noreferrer">Admin</a> */}
       </div>
     </nav>
   );
