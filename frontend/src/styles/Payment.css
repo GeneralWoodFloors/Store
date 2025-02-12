@@ -35,3 +35,9 @@
   color: #666;
   margin-top: 20px;
 }
+
+.payment-icon {
+  width: 30px; /* Adjust size */
+  height: 20px; /* Adjust size */
+  margin-right: 1px; /* Add space between icon and text */
+}
