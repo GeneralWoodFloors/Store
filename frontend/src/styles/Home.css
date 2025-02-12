@@ -1,23 +1,19 @@
 .container {
   text-align: center;
-  background-color: #faf3e0; /* Warm medium brown for a strong, earthy feel */
-  /* padding: 10px 10px; */
+  background-color: #faf3e0;
   padding-bottom: 30px;
 }
 
 .hero {
   background-image: url('../assets/background2.jpg');
-  background-size: cover;      /* Ensure the image covers the entire hero section */
-  background-repeat: no-repeat; /* Prevent repeating of the image */
-  background-position: center;  /* Center the image */
-  display: grid;          /* Enable grid */
-  place-items: center;    /* Center items both horizontally and vertically */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: grid;
+  place-items: center;
   padding-bottom: 3%;
   padding-top: 3%;
-  /* Other styles */
-  color: white; /* Light beige for text */
-  /* border-bottom: 2px solid black; */
-  
+  color: white;
 }
 
 .hero .hero-heading {
@@ -32,52 +28,111 @@
 
 .hero .hero-button {
   padding: 15px 30px;
-  background-color: #eac8ab; /* Light sand color for the button */
-  color: #532617; /* Dark brown text for contrast */
+  background-color: #eac8ab;
+  color: #532617;
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
-  transition: background-color 0.3s ease; /* Smooth hover effect */
-  font-family: 'Georgia', Serif !important; /* Change to your desired font */
-  border: none !important; /* Remove any unwanted border */
+  transition: background-color 0.3s ease;
+  font-family: 'Georgia', Serif !important;
+  border: none !important;
 }
-
 
 .hero .hero-button:hover {
-  background-color: #bf926b; /* Darker tan when hovered */
+  background-color: #bf926b;
 }
 
-.home-container{
+.home-container {
   display: flex;
   justify-content: center;
 }
 
 .home-gallery {
-  display: flex; /* Arrange images in a row */
-  justify-content:center; /* Center images horizontally */
-  gap: 15px; /* Add spacing between images */
-  margin-top: 40px; /* Space between hero and gallery */
-  flex-wrap: wrap; /* Ensure images wrap on smaller screens */
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 40px;
+  flex-wrap: wrap;
   background-color: #532617;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  width:fit-content;
+  padding: 15px;
+  width: fit-content;
   border: 3px solid black;
   border-radius: 10px;
-
 }
 
 .home-gallery-image {
-  width: 350px; /* Set a fixed width */
-  height: 300px; /* Set a fixed height */
-  object-fit: cover; /* Crop images to fit nicely */
-  border-radius: 8px; /* Smooth rounded corners */
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
 }
 
 .home-gallery-image:hover {
-  transform: scale(1.05); /* Slight zoom effect on hover */
+  transform: scale(1.05);
+}
+
+/* Reviews Section with Slide-in Effect */
+.reviews {
+  margin-top: 50px;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideIn 1s ease-in-out forwards;
+}
+
+.reviews h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #532617;
+}
+
+.reviews p {
+  font-size: 1.2rem;
+  background-color: #eac8ab;
+  color: #532617;
+  padding: 15px;
+  margin: 10px auto;
+  width: 60%;
+  border-radius: 8px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+.reviews p:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.reviews p:nth-child(3) {
+  animation-delay: 1.5s;
+}
+
+.reviews p:nth-child(4) {
+  animation-delay: 2s;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

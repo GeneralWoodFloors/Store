@@ -23,7 +23,6 @@ const Bookings = () => {
       <div
         className="calendly-inline-widget"
         data-url={`${CALENDLY_URL}`}
-        style={{ minWidth: "320px", height: "700px" }}
       />
     </div>
   );

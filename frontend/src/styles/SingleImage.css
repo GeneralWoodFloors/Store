@@ -13,11 +13,13 @@
 }
 
 .single-image h1 {
+  font-family: Georgia, serif;
   font-size: 1.5rem;
   margin: 20px 0;
 } 
 
 .single-image p {
+  font-family: Georgia,  serif;
   font-size: 1rem;
   color: #333;
 } 
@@ -28,15 +30,21 @@
 }
 
 .button-link button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
+  padding: 15px 30px;
+  background-color: #eac8ab; /* Light sand color for the button */
+  color: #532617; /* Dark brown text for contrast */
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  font-family: 'Georgia', Serif !important; /* Change to your desired font */
+  border: none !important; /* Remove any unwanted border */
 }
 
 .button-link button:hover {
-  background-color: #0056b3;
+  background-color: #bf926b; 
+}
+
+a {
+  text-decoration: none; /* Removes the underline from all links */
 }
