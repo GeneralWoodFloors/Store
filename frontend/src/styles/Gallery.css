@@ -1,12 +1,15 @@
 /* Gallery Page: Two Images Per Row */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Ensures exactly 2 images per row */
-  gap: 10px;
+  grid-template-columns: repeat(2, minmax(200px, 1fr)); /* Slightly reduces image width */
+  gap: 15px; /* Increase gap for better spacing */
   padding: 20px;
   background-color: #faf3e0;
-  overflow-y: auto; /* Enables scrolling if necessary */
+  justify-content: center; /* Center the grid */
+  max-width: 90%; /* Prevents images from taking full width */
+  margin: auto; /* Centers the gallery */
 }
+
 
 /* Individual Gallery Items */
 .gallery-item {

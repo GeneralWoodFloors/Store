@@ -9,9 +9,9 @@ function UserProfile() {
         <Profile />
       </div>
 
-      {/* <div className="contact-messages">
+      <div className="contact-messages">
         <UserMessages />
-      </div> */}
+      </div>
     </section>
   );
 }

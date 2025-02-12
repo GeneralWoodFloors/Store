@@ -30,10 +30,9 @@ const SingleImage = () => {
 
   return (
     <div className="single-image">
+            <h1>{image.title}</h1>
+           <p>{image.description}</p>
       <img src={image.image} alt={image.title} className="single-image-img" />
-      <h1>{image.title}</h1>
-      <p>{image.description}</p>
-
       <Link to="/gallery" className="button-link">
         <button>Back to Gallery</button>
       </Link>

@@ -5,46 +5,57 @@
   background-color: #faf3e0;
 }
 
+/* Make the image take up more space */
 .single-image-img {
-  max-width: 50%; /* Image is larger but not too big */
+  max-width: 80%; /* Increase image size */
   height: auto;
-  object-fit: contain; /* Ensure image retains aspect ratio */
+  object-fit: contain;
   border-radius: 8px;
 }
 
+/* Improve visibility of title */
 .single-image h1 {
   font-family: Georgia, serif;
-  font-size: 1.5rem;
+  font-size: 2rem; /* Larger font */
+  font-weight: bold;
   margin: 20px 0;
-} 
+  color: #532617; /* Darker text for contrast */
+}
 
+/* Make description text more visible */
 .single-image p {
-  font-family: Georgia,  serif;
-  font-size: 1rem;
-  color: #333;
-} 
+  font-family: Georgia, serif;
+  font-size: 1.2rem; /* Increase font size */
+  font-weight: bold;
+  color: #2d1b0c; /* Darker text for better readability */
+}
+
+/* Center the button and make it more prominent */
 .button-link {
   display: flex;
-  justify-content: center; /* Horizontally center the button */
-  width: 100%; /* Ensure the button is on its own line */
+  justify-content: center;
+  width: 100%;
 }
 
 .button-link button {
-  padding: 15px 30px;
-  background-color: #eac8ab; /* Light sand color for the button */
-  color: #532617; /* Dark brown text for contrast */
+  padding: 18px 35px;
+  font-size: 1.1rem; /* Slightly larger text */
+  background-color: #eac8ab;
+  color: #532617;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 8px;
   font-weight: bold;
-  transition: background-color 0.3s ease; /* Smooth hover effect */
-  font-family: 'Georgia', Serif !important; /* Change to your desired font */
-  border: none !important; /* Remove any unwanted border */
+  transition: background-color 0.3s ease;
+  font-family: 'Georgia', serif !important;
+  border: none !important;
+  cursor: pointer;
 }
 
 .button-link button:hover {
-  background-color: #bf926b; 
+  background-color: #bf926b;
 }
 
+/* Ensure all links have no underlines */
 a {
-  text-decoration: none; /* Removes the underline from all links */
+  text-decoration: none;
 }
