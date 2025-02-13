@@ -1,55 +1,50 @@
-/* Gallery Page: Smaller Images */
+/* Gallery Page: Two Images Per Row */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Smaller images */
-  gap: 10px; /* Reduced gap between items */
+  grid-template-columns: repeat(2, minmax(200px, 1fr)); /* Slightly reduces image width */
+  gap: 15px; /* Increase gap for better spacing */
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #faf3e0;
+  justify-content: center; /* Center the grid */
+  max-width: 90%; /* Prevents images from taking full width */
+  margin: auto; /* Centers the gallery */
 }
 
+
+/* Individual Gallery Items */
 .gallery-item {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 300px; /* Adjust as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
 
 .gallery-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Ensuring the entire item is clickable */
 a {
-  display: block; /* Make the anchor tag behave like a block-level element */
-  width: 100%; /* Takes full width of the gallery item */
-  height: 100%; /* Takes full height of the gallery item */
-  text-decoration: none; /* Remove the underline from the link */
-}
-
-.gallery-button {
-  all: unset; /* Removes all default button styles */
   display: block;
   width: 100%;
   height: 100%;
-  cursor: pointer; /* Change the cursor to indicate a clickable item */
+  text-decoration: none;
 }
 
+.gallery-button {
+  all: unset;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* Making images fit properly */
 .gallery-image {
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-bottom: 2px solid #ddd;
-}
 
-/* .gallery-item h3 {
-  margin: 10px 0 5px;
-  font-size: 1rem;
-  color: #333;
 }
-
-.gallery-item p {
-  font-size: 0.85rem;
-  color: #666;
-} */

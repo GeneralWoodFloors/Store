@@ -2,19 +2,19 @@
 .payment-section {
   padding: 50px 20px;
   text-align: center;
-  font-family: 'Arial', sans-serif;
+  background-color: #faf3e0;
 }
 
 .payment-section .heading {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #007BFF; /* Primary color for the heading */
+  color: #8B4513;
 }
 
 .payment-section .text {
   font-size: 1.2rem;
   margin-bottom: 20px;
-  color: #333; /* Neutral text color */
+  color: #333;
 }
 
 .payment-section .payment-list {
@@ -27,11 +27,17 @@
 .payment-section .payment-list li {
   font-size: 1.2rem;
   margin: 10px 0;
-  color: #444; /* Slightly darker for contrast */
+  color: #444;
 }
 
 .payment-section .note {
   font-size: 1rem;
-  color: #666; /* Lighter gray for emphasis */
+  color: #666;
   margin-top: 20px;
+}
+
+.payment-icon {
+  width: 30px; /* Adjust size */
+  height: 20px; /* Adjust size */
+  margin-right: 1px; /* Add space between icon and text */
 }

@@ -1,13 +1,19 @@
-
 .container {
-  font-family: 'Arial', sans-serif;
   text-align: center;
+  background-color: #faf3e0;
+  padding-bottom: 30px;
 }
 
 .hero {
-  background-color: #007BFF;
-  color: #fff;
-  padding: 50px 20px;
+  background-image: url('../assets/background2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: grid;
+  place-items: center;
+  padding-bottom: 3%;
+  padding-top: 3%;
+  color: white;
 }
 
 .hero .hero-heading {
@@ -22,9 +28,83 @@
 
 .hero .hero-button {
   padding: 15px 30px;
-  background-color: #fff;
-  color: #007BFF;
+  background-color: #eac8ab;
+  color: #532617;
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-family: 'Georgia', Serif !important;
+  border: none !important;
+}
+
+.hero .hero-button:hover {
+  background-color: #bf926b;
+}
+
+.home-container {
+  display: flex;
+  justify-content: space-between;  /* Space between the pairs */
+  gap: 30px;
+  margin-top: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.image-review {
+  display: flex;
+  flex-direction: column;  /* Stack the image and review vertically */
+  align-items: center;     /* Center the content */
+  width: 30%;              /* Adjust the width for each pair */
+}
+
+.home-gallery-image {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.home-gallery-image:hover {
+  transform: scale(1.05);
+}
+
+.review {
+  margin-top: 15px;
+  background-color: #eac8ab;
+  color: #532617;
+  padding: 15px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;  /* Center the review text */
+}
+
+.review p {
+  font-size: 1.2rem;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-in-out forwards;
+}
+
+.review p:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.review p:nth-child(3) {
+  animation-delay: 1.5s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,0 +1,23 @@
+.booking-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+  height: 100vh; /* Full height */
+  overflow: hidden; /* Prevents scrolling */
+}
+
+.payment-section {
+  flex: 1;
+  max-width: 400px;
+  padding-left: 50px;
+}
+
+.calendly-inline-widget {
+  flex: 2; /* Gives Calendly more space */
+  width: 100%;
+  height: 85vh; /* Makes it taller to remove scrolling */
+  min-height: 600px;
+}
