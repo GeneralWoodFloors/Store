@@ -1,0 +1,38 @@
+.footer {
+  background-color: #532617; /* Dark brown for footer */
+  color: white;
+  text-align: center;
+  padding: 5px;
+  bottom: 0;
+  width: 100%;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the container takes the full viewport height */
+}
+
+.content {
+  flex: 1; /* Pushes the footer down */
+}
+
+.footer-content {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #bf926b; /* Light brown color on hover */
+}

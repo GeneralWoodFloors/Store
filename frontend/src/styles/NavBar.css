@@ -2,23 +2,42 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #007BFF;
-  color: #fff;
-  padding: 10px 20px;
+  
+  background-color: #532617;;  /* Soft beige background from your palette */
+  color: beige; /* Dark brown for text */
+  /* padding: 10px 20px;
+  padding-top: 14px;
+  padding-bottom: 14px; */
+  padding: 20px;
+ 
 }
 
 .navbar .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  color: beige; /* Warm medium brown for the logo */
+  font-family: 'Georgia', serif; /* Rustic font for a carpentry feel */
 }
 
 .navbar .links {
   display: flex;
-  gap: 15px;
+  gap: 20px;
+  text-align: center;
+  align-items: center;
 }
 
 .navbar .link {
-  color: #fff;
+  color: beige; /* Dark brown for links */
   text-decoration: none;
   font-size: 1rem;
+  transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.navbar .link:hover {
+  color: beige; /* Warm brown color for hover */
+  text-decoration: underline;
+}
+
+.li .link {
+  color: beige;
 }

@@ -14,6 +14,8 @@ import Payment from './pages/Payment'
 import UserProfile from './pages/UserProfile'
 import Bookings from './pages/Booking'
 import ContactUs from './pages/Contact'
+import Footer from './components/Footer'
+import "./styles/App.css"
 
 function Logout () {
    localStorage.clear()
@@ -29,29 +31,32 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar element={<Navbar/>}/>
-      <Routes>
-        <Route path='/user' element= { 
-          <ProtectedRoute> 
-            <UserProfile/>
-            {/* Include routes that will only be available when a person is logged in; example: user profiles, admin create*/}
-          </ProtectedRoute>
-          }/>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/login' element= {<Login/>}/>
-          <Route path='/logout' element= {<Logout/>}/>
-          <Route path='/register' element= {<RegisterAndLogout/>}/>
-          <Route path='/gallery' element= {<GalleryPage/>}/>
-          <Route path='/gallery/:id' element= {<SingleImagePage/>}/>
-          {/* <Route path='/admin' element={<Admin/>}/> */}
-          <Route path='/contact' element={<ContactUs/>}/>
-          <Route path='/about' element={<About/>}/>
-          <Route path='/payment' element={<Payment/>}/>
-          <Route path='/booking' element={<Bookings/>}/>
-          <Route path='*' element= {<NotFound/>}/>
-      </Routes>
+      <div className="app-container">
+        <Navbar />
+        <div className="content">
+          <Routes>
+            <Route path='/user' element={ 
+              <ProtectedRoute> 
+                <UserProfile />
+              </ProtectedRoute>
+            }/>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/logout' element={<Logout/>}/>
+            <Route path='/register' element={<RegisterAndLogout/>}/>
+            <Route path='/gallery' element={<GalleryPage/>}/>
+            <Route path='/gallery/:id' element={<SingleImagePage/>}/>
+            <Route path='/contact' element={<ContactUs/>}/>
+            <Route path='/about' element={<About/>}/>
+            <Route path='/payment' element={<Payment/>}/>
+            <Route path='/booking' element={<Bookings/>}/>
+            <Route path='*' element={<NotFound/>}/>
+          </Routes>
+        </div>
+        <Footer />
+      </div>
     </BrowserRouter>
-  )
+  );
 }
 
 // anything inside the protected route can not be accessed unless they have access
